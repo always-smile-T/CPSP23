@@ -15,9 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   LoginBloc bloc = LoginBloc();
-
   bool _showPass = false;
-  late bool correct;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   @override
@@ -122,15 +120,9 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                     ),
                                     GestureDetector(
-                                      onTap: onToggleShowPass,
-                                      child: Text(
-                                        _showPass ? "HIDE" : "SHOW",
-                                        style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
+                                        onTap: onToggleShowPass,
+                                        child: Image.asset(_showPass ? "assets/images/eye_x.png" : "assets/images/eye.png")
+                                    ),
                                   ],
                                 ),
                               ),
@@ -222,8 +214,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget doubleCicle(double t, double b, double r, double l, double t1, double b1, double r1, double l1){
-    return Container( // doi bien
-     // transform: Matrix4.rotationX(pi),
+    // bien k co so(vd: t,b,...) là cua hinh tron lớn. và ngược lại
+    return Container(
       color: null,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width,
